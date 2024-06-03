@@ -1,0 +1,47 @@
+extends ../layout/admin
+
+block contenido 
+    div.py-2
+        h2(class="text-center text-6x1 font-bold pb-5")= pagina
+        div(class="flex justify-end") 
+            a(href="/propiedades/crear" class=" rounded py-3 p-2 bg-sky-400 hover:bg-sky-600 text-sm font-bold text-center text-white uppercase my-5 mx-7") Publicar Propiedad
+
+
+        //-pre= JSON.stringify(propiedades, undefined, 2)
+
+        if propiedades.length 
+            div(class="bg-white shadow rounded-lg")
+                ul(class="divide-y divide-gray-200")
+                    each propiedad in propiedades 
+                        li
+                            div(class="p-6 w-full flex flex-col sm:flex-row sm:items-center sm:justify-between space-x-8 gap-4")
+                                div(class="sm:w-1/4 md:w-1/6") 
+                                    img(src=`uploads/${propiedad.imagen}`, alt=`${propiedad.titulo}` class="w-full block")
+
+                                div(class="sm:w-2/4 md:w-3/6 lg:w-4/6")
+                                    a(href=`/propiedad/${propiedad.id}` class="block text-2xl font-extrabold text-sky-400 truncate")=propiedad.titulo 
+
+                                    p(class="text-sm text-black font-bold")=propiedad.categoria.nombre
+                                    p(class="text-xl text-gray-500")=propiedad.precio.rango
+                                    p(class="text-sm text-gray-600")=`${propiedad.mensajes.length} Mensajes`
+                                    
+                                div(class="sm:w-1/4 md:w-2/6 lg:w-1/6 flex flex-col gap-2") 
+                                    form(method="POST" action=`/propiedades/estado/${propiedad.id}`)
+                                        input(type="hidden" name="_csrf" value=csrfToken)
+                                        input(type="submit" class=`w-full px-2 py-2 md:py-1 text-sm leading-5 font-semibold rounded cursor-pointer ${propiedad.publicado ? 'bg-green-100 text-green-900' : 'bg-yellow-100 text-yellow-900'}` value=`${propiedad.publicado ? 'Publicado' : 'No Publicado'}`)
+                                    
+                                    a(href=`/propiedades/editar/${propiedad.id}` class="px-2 py-2 md:py-1 text-sm text-center leading-5 font-semibold rounded cursor-pointer bg-indigo-100 text-indigo-800") Editar
+
+                                    form(method="POST" action=`/propiedades/eliminar/${propiedad.id}`)
+                                        input(type="hidden" name="_csrf" value=csrfToken)
+                                        input(type="submit" class="w-full px-2 py-2 md:py-1 text-sm leading-5 font-semibold rounded cursor-pointer bg-red-100 text-red-800" value="Eliminar")
+
+                div(class="bg-white px-4 py-3 flex items-center justify-end border-t border-gray-200 sm:px-6")
+                    div 
+                        nav(class="relative z-0 inline-flex rounded-md shadow-md")
+                            -var n=1;
+                                while n <= paginas
+                                    a(href=`/mis-propiedades?pagina=${n}` class=`${paginaActual == n ? 'bg-indigo-50 border-indigo-500 text-indigo-600' : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-200'} relative inline-flex items-center px-4 py-2 border text-sm font-medium`) #{n++}
+
+        else 
+            p.text-center No Hay Propiedades

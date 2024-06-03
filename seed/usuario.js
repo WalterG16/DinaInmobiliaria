@@ -1,0 +1,6 @@
+
+const usuario = [
+    {
+        nombre
+    }
+]

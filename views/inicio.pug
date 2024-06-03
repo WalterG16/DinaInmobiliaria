@@ -1,0 +1,44 @@
+extends ./layout/app
+
+block contenido 
+
+    div(class="flex justify-center mb-5 ")
+        form(action="/buscador" method="POST") 
+            input(type="hidden" name="_csrf" value=csrfToken)
+            input(placeholder="Barrio, Calle, Titulo de la propiedad" type="text" id="termino" name="termino" class="w-96  px-3 py-2 border border-gray-300 rounder-md placeholder-gray-400 ")
+            input(type="submit" class="w-32 mx-2 py-3 bg-sky-400 hover:bg-sky-600 rounded text-white text-center font-bold uppercase cursor-pointer" value= "buscar")
+
+    div(class="bg-white shadow rounded")
+        div(class="grid gap-8 grid-cols-1 md:grid-cols-4 place-items-stretch p-3")
+            div(class="relative")
+                img(src="/img/casa.jpg", alt="" class="rounded-xl h-full w-full transition duration-300 ease-in-out filter blur-0 hover:blur-sm cursor-pointer")
+                a(href="categoria/1" class="backdrop-blur-sm rounded-xl absolute inset-0 flex justify-center items-center opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 bg-black bg-opacity-50")
+                    span(class="text-white font-bold text-lg") CASAS
+            div(class="relative")
+                img(src="/img/cabañas.jpg", alt="" class="rounded-xl h-full w-full transition duration-300 ease-in-out filter blur-0 hover:blur-sm cursor-pointer")
+                a(href="categoria/3" class="backdrop-blur-sm rounded-xl absolute inset-0 flex justify-center items-center opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 bg-black bg-opacity-50")
+                    span(class="text-white font-bold text-lg") CABAÑAS
+            div(class="relative")
+                img(src="/img/departamento.jpg", alt="" class="rounded-xl h-full w-full transition duration-300 ease-in-out filter blur-0 hover:blur-sm cursor-pointer")
+                a(href="categoria/2" class="backdrop-blur-sm rounded-xl absolute inset-0 flex justify-center items-center opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 bg-black bg-opacity-50")
+                    span(class="text-white font-bold text-lg") DEPARTAMENTOS
+            div(class="relative")
+                img(src="/img/oficina.jpg", alt="" class="rounded-xl h-full w-full transition duration-300 ease-in-out filter blur-0 hover:blur-sm cursor-pointer")
+                a(href="categoria/6" class="backdrop-blur-sm rounded-xl absolute inset-0 flex justify-center items-center opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 bg-black bg-opacity-50")
+                    span(class="text-white font-bold text-lg") OFICINAS
+            div(class="relative")
+                img(src="/img/consultorio.jpg", alt="" class="rounded-xl h-full w-full transition duration-300 ease-in-out filter blur-0 hover:blur-sm cursor-pointer")
+                a(href="categoria/7" class="backdrop-blur-sm rounded-xl absolute inset-0 flex justify-center items-center opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 bg-black bg-opacity-50")
+                    span(class="text-white font-bold text-lg") CONSULTORIOS
+            div(class="relative")
+                img(src="/img/cochera.jpg", alt="" class="rounded-xl h-full w-full transition duration-300 ease-in-out filter blur-0 hover:blur-sm cursor-pointer")
+                a(href="categoria/5" class="backdrop-blur-sm rounded-xl absolute inset-0 flex justify-center items-center opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 bg-black bg-opacity-50")
+                    span(class="text-white font-bold text-lg") COCHERAS
+            div(class="relative")
+                img(src="/img/terreno.jpg", alt="" class="rounded-xl h-full w-full transition duration-300 ease-in-out filter blur-0 hover:blur-sm cursor-pointer")
+                a(href="categoria/4" class="backdrop-blur-sm rounded-xl absolute inset-0 flex justify-center items-center opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 bg-black bg-opacity-50")
+                    span(class="text-white font-bold text-lg") TERRENOS
+            div(class="relative")
+                img(src="/img/deposito.jpg", alt="" class="rounded-xl h-full w-full transition duration-300 ease-in-out filter blur-0 hover:blur-sm cursor-pointer")
+                a(href="categoria/8" class="backdrop-blur-sm rounded-xl absolute inset-0 flex justify-center items-center opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 bg-black bg-opacity-50")
+                    span(class="text-white font-bold text-lg") DEPOSITOS

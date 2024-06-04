@@ -53,7 +53,7 @@ const emailRecuperacion = async (datos) => {
             <p>Hola ${nombre}, has solicitado restablecer tu contraseña en DinaInmobiliaria.com</p>
 
             <p>Dale click en el siguiente enlace para restablecer tu contraseña:
-            <a href="${process.env.BACKEND_URL}:${process.env.PORT ?? 3000}/auth/recuperacion/${token}"> Restablece tu Contraseña</a> </p>
+            <a href="${process.env.BACKEND_URL}/auth/recuperacion/${token}"> Restablece tu Contraseña</a> </p>
 
             <p>Si tu no solicitaste un cambio de contraseña ignora este mensaje</p>
         `

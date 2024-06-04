@@ -24,7 +24,7 @@ const emailRegistro = async (datos) => {
             <p>Hola ${nombre}, Comprueba tu cuenta en DinaInmobiliaria.com</p>
 
             <p>Tu cuenta ya esta lista, solo debes confirmarla en el siguiente enlace:
-            <a href="${process.env.BACKEND_URL}:${process.env.PORT ?? 3000}/auth/confirmar/${token}"> Confirmar Cuenta</a> </p>
+            <a href="${process.env.BACKEND_URL}/auth/confirmar/${token}"> Confirmar Cuenta</a> </p>
 
             <p>Si tu no creaste esta cuenta, ignora este mensaje</p>
         `
